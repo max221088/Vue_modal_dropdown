@@ -9,9 +9,24 @@
     <!-- JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script defer src="./js/app.js"></script>
-    <title>Document</title>
+    <title>Modal Dropdown</title>
 </head>
 <body>
-    
+    <div class="app" id="app">
+        <input type="title" v-model="title">
+        <button @click="changeColor()">Chenge Color</button>
+        <h1 class="title" :class="{'red': (isRed)}">{{title}}</h1>
+        <div class="modal">
+
+        </div>
+        <div class="dropdown" :class="{'active': (openDrop)}">
+            <div class="drop-btn" @click="dropControler()">Dropdown</div>
+            <div class="drop-menu">
+                <ul>
+                    <li v-for="(item, index) in pokemon" :key="index">{{index+" "+item.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
